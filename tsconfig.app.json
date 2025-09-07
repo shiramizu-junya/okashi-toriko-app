@@ -1,27 +1,35 @@
 {
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo", // incremental build（差分ビルド）情報の保存先
+		"target": "ES2022", // コンパイル後のJavaScriptの仕様レベル
+		"lib": ["ES2022", "DOM", "DOM.Iterable"], // 型定義として読み込む標準ライブラリ群
+		"useDefineForClassFields": true, // ECMAScript準拠のクラスフィールド初期化を使う
+		"module": "ESNext", // モジュール出力形式を最新（ESNext）に指定し, ES Modules として出力
+		"skipLibCheck": true, // 外部型定義ファイルの型チェックを省略し、ビルドを高速化します
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+		/* Bundler mode */
+		"moduleResolution": "bundler", // Vite / Bun / modern bundler 用の新しい解決方式。パッケージエクスポートマップを理解してくれる
+		"allowImportingTsExtensions": true, // import x from "./foo.ts" のように拡張子付きでインポート可能
+		"resolveJsonModule": true, // .jsonファイルを直接 import data from "./data.json" のようにインポート可能
+		"isolatedModules": true, // すべてのファイルを独立にトランスパイルできるようチェック
+		"verbatimModuleSyntax": true, // import type { Foo } などがそのまま出力に反映されるようにする
+		"moduleDetection": "force", // .ts/.tsx ファイルは常に ES モジュール扱いにする
+		"noEmit": true, // 型チェック専用にして、出力ファイル（.js）は生成しない
+		"jsx": "react-jsx", // 	React 17+ の 新しいJSX変換を使う
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"]
+		/* Linting */
+		"strict": true, // 型チェックを最大限に厳格化
+		"noUnusedLocals": true, // 使われていないローカル変数があればエラー
+		"noUnusedParameters": true, // 未使用引数もエラー
+		"erasableSyntaxOnly": true, // 実行時に消える構文（型だけ）に限定してエラー対象
+		"noFallthroughCasesInSwitch": true, // switch 文で break 書き忘れを防ぐ
+		"noUncheckedSideEffectImports": true, // 型定義が無いのに import しているものをチェック
+
+		/* パス設定 */
+		"baseUrl": ".", // 相対パスの基準をプロジェクトルートにする
+		"paths": {
+			"@/*": ["src/*"] // @/components/Button のように src/ を省略して書ける
+		}
+	},
+	"include": ["src"] // 型チェック対象を src/ 配下に限定。node_modules や設定ファイルは除外される。
 }
