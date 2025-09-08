@@ -4,7 +4,7 @@
 		"target": "ES2022", // コンパイル後のJavaScriptの仕様レベル
 		"lib": ["ES2022", "DOM", "DOM.Iterable"], // 型定義として読み込む標準ライブラリ群
 		"useDefineForClassFields": true, // ECMAScript準拠のクラスフィールド初期化を使う
-		"module": "ESNext", // モジュール出力形式を最新（ESNext）に指定し, ES Modules として出力
+		"module": "ESNext", // モジュール出力形式を最新（ESNext）に指定し ES Modules として出力
 		"skipLibCheck": true, // 外部型定義ファイルの型チェックを省略し、ビルドを高速化します
 
 		/* Bundler mode */
@@ -15,7 +15,7 @@
 		"verbatimModuleSyntax": true, // import type { Foo } などがそのまま出力に反映されるようにする
 		"moduleDetection": "force", // .ts/.tsx ファイルは常に ES モジュール扱いにする
 		"noEmit": true, // 型チェック専用にして、出力ファイル（.js）は生成しない
-		"jsx": "react-jsx", // 	React 17+ の 新しいJSX変換を使う
+		"jsx": "react-jsx", // React 17+ の 新しいJSX変換を使う
 
 		/* Linting */
 		"strict": true, // 型チェックを最大限に厳格化
