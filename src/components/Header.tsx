@@ -1,3 +1,4 @@
+/** ヘッダー */
 export const Header = () => {
     return (
         <header className="bg-white shadow-sm border-b">

@@ -18,3 +18,12 @@ export type ResponseType = {
     item: SnackType[];
     status: string;
 };
+
+export type SnackCategoryType =
+    | 'all'
+    | 'snack'
+    | 'chocolate'
+    | 'cookie'
+    | 'candy'
+    | 'senbei'
+    | 'limited';
